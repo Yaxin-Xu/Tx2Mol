@@ -59,7 +59,7 @@ python -m tx2mol.generate --config configs/generate_reference.json \
 
 This makes **100 generation attempts** across ten targets. Weights are downloaded from [Releases](https://github.com/Yaxin-Xu/Tx2Mol/releases/tag/v1.0) and verified automatically. An [archived execution example](examples/reference_demo/) is included.
 
-For the full experiment (**10 targets × 10 runs × 100 attempts**), this single command generates, evaluates, and selects the best run for each target:
+For the full experiment (**10 targets**), this single command generates and evaluates for each target:
 
 ```bash
 python -m tx2mol.generate --config configs/generate_reference.json
@@ -70,8 +70,7 @@ python -m tx2mol.generate --config configs/generate_reference.json
 Results are saved together in `outputs/reference_targets/`:
 
 - `best_max_tanimoto.csv`: **each target's highest maximum Tanimoto**, scoring all valid molecules.
-- `best_run_attempts.csv`: all 100 attempts in each winning group, **1,000 attempts total**.
-- `raw_attempts.csv` and `run_max_tanimoto.csv`: all 10,000 attempts and all 100 run scores.
+- `best_run_attempts.csv`: all 100 attempts in each winning group.
 - `evaluation_summary.json`: the mean of the ten selected target maxima, settings, and checksums.
 
 ## 4. Train the three-stage pipeline
